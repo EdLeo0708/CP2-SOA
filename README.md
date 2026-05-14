@@ -106,3 +106,8 @@ Acesse a documentação em: `http://localhost:3000/api-docs`
 - **InvalidReservationStateException**: Controle de transições de status.
 - **Check-in Window**: Apenas na data prevista.
 - **Cálculo Automático**: Preços baseados em diárias.
+
+## Desenvolvedor
+- **Nome:** Edson Leonardo Pacheco Navia
+- **Sala:** 3ESPR
+- **Faculdade:** FIAP, Unidade Av.Paulista
