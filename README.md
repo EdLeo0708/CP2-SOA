@@ -2,7 +2,7 @@
 
 Este projeto é uma API REST para gestão de reservas de hotel, desenvolvida para a disciplina de SOA.
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 - **Node.js** com **TypeScript**
 - **Express.js** (Framework Web)
 - **Prisma ORM** (Persistência)
@@ -10,7 +10,7 @@ Este projeto é uma API REST para gestão de reservas de hotel, desenvolvida par
 - **Zod** (Validação de DTOs)
 - **Swagger UI** (Documentação)
 
-## 🏗️ Arquitetura
+## Arquitetura
 O projeto segue uma arquitetura em 3 camadas, conforme solicitado:
 
 ```mermaid
@@ -38,7 +38,7 @@ graph TD
 - **Decisão**: Implementamos um middleware global no Express para capturar exceções e formatar a resposta.
 - **Consequência**: Respostas de erro consistentes em toda a API.
 
-## 🚀 Como Executar
+## Como Executar
 
 ### 1. Instalar dependências
 ```bash
@@ -57,7 +57,7 @@ npm run dev
 ```
 Acesse a documentação em: `http://localhost:3000/api-docs`
 
-## 📖 Exemplos de Requisição
+## Exemplos de Requisição
 
 ### Criar Reserva (POST `/api/reservations`)
 **Request:**
@@ -99,7 +99,7 @@ Acesse a documentação em: `http://localhost:3000/api-docs`
 }
 ```
 
-## ✅ Regras de Negócio Implementadas
+## Regras de Negócio Implementadas
 - **InvalidDateRangeException**: Saída deve ser após a entrada.
 - **RoomUnavailableException**: Bloqueio de sobreposição de datas.
 - **CapacityExceededException**: Validação de hóspedes vs capacidade.
