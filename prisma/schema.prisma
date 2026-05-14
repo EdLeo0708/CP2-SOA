@@ -1,0 +1,56 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Guest {
+  id           String        @id @default(uuid())
+  full_name    String
+  document     String        @unique
+  email        String        @unique
+  phone        String?
+  created_at   DateTime      @default(now())
+  reservations Reservation[]
+
+  @@map("guests")
+}
+
+model Room {
+  id              String        @id @default(uuid())
+  number          Int           @unique
+  type            String        // STANDARD | DELUXE | SUITE
+  capacity        Int
+  price_per_night Decimal
+  status          String        @default("ATIVO") // ATIVO | INATIVO
+  reservations    Reservation[]
+
+  @@map("rooms")
+}
+
+model Reservation {
+  id                String    @id @default(uuid())
+  guest_id          String
+  room_id           String
+  checkin_expected  DateTime
+  checkout_expected DateTime
+  checkin_at        DateTime?
+  checkout_at       DateTime?
+  status            String    @default("CREATED") // CREATED | CHECKED_IN | CHECKED_OUT | CANCELED
+  number_of_guests  Int       @default(1)
+  estimated_amount  Decimal
+  final_amount      Decimal?
+  created_at        DateTime  @default(now())
+  updated_at        DateTime  @updatedAt
+
+  guest Guest @relation(fields: [guest_id], references: [id])
+  room  Room  @relation(fields: [room_id], references: [id])
+
+  @@map("reservations")
+}

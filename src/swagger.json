@@ -1,0 +1,89 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Hotel Reservation System API",
+    "version": "1.0.0",
+    "description": "API for managing hotel guests, rooms, and reservations (CP2 SOA)"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/api"
+    }
+  ],
+  "paths": {
+    "/guests": {
+      "get": {
+        "summary": "List all guests",
+        "responses": {
+          "200": { "description": "OK" }
+        }
+      },
+      "post": {
+        "summary": "Create a guest",
+        "responses": {
+          "201": { "description": "Created" }
+        }
+      }
+    },
+    "/rooms": {
+      "get": {
+        "summary": "List all rooms",
+        "responses": {
+          "200": { "description": "OK" }
+        }
+      }
+    },
+    "/reservations": {
+      "get": {
+        "summary": "List all reservations",
+        "responses": {
+          "200": { "description": "OK" }
+        }
+      },
+      "post": {
+        "summary": "Create a reservation",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "guest_id": { "type": "string", "format": "uuid" },
+                  "room_id": { "type": "string", "format": "uuid" },
+                  "number_of_guests": { "type": "integer" },
+                  "checkin_expected": { "type": "string", "format": "date" },
+                  "checkout_expected": { "type": "string", "format": "date" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Created" }
+        }
+      }
+    },
+    "/reservations/{id}/check-in": {
+      "post": {
+        "summary": "Perform check-in",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": { "description": "OK" }
+        }
+      }
+    },
+    "/reservations/{id}/check-out": {
+      "post": {
+        "summary": "Perform check-out",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": { "description": "OK" }
+        }
+      }
+    }
+  }
+}
