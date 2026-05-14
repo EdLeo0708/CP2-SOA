@@ -111,3 +111,4 @@ Acesse a documentação em: `http://localhost:3000/api-docs`
 - **Nome:** Edson Leonardo Pacheco Navia
 - **Sala:** 3ESPR
 - **Faculdade:** FIAP, Unidade Av.Paulista
+- **RM:** 553737
